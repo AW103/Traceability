@@ -17,12 +17,22 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'))
+})
+
+app.get("/hello", (req,res) => {  
+    try{
+        fakeHello()
+res.status(200).send("Hello there")
+} catch (err) {
+    console.error(err)
+    rollbar.error("Invalid function")
+}
 })
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log(`Server rocking out on ${port}`)
 })
