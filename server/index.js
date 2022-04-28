@@ -27,7 +27,7 @@ app.get("/hello", (req,res) => {
 res.status(200).send("Hello there")
 } catch (err) {
     console.error("Not working")
-    rollbar.error("Invalid function")
+    rollbar.critical("Invalid function")
 }
 })
 
