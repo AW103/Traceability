@@ -31,6 +31,8 @@ res.status(200).send("Hello there")
 }
 })
 
+app.use(rollbar.errorHandler())
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
