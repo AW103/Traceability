@@ -26,7 +26,7 @@ app.get("/hello", (req,res) => {
         fakeHello()
 res.status(200).send("Hello there")
 } catch (err) {
-    console.error(err)
+    console.error("Not working")
     rollbar.error("Invalid function")
 }
 })
