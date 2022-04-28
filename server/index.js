@@ -16,6 +16,7 @@ rollbar.log('Hello world!')
 app.use(express.json());
 
 app.use(express.static("public"));
+app.use(rollbar.errorHandler())
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/index.html'))
@@ -32,7 +33,6 @@ res.status(200).send("Hello there")
 }
 })
 
-app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 3000;
 
